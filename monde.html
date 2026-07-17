@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Le Cube — Fiche de monde | VerseBuilder</title>
+<meta name="description" content="Fiche complète du monde du Cube : royaumes primordiaux, secondaires et mortels, panthéon, races et factions.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-root="">
+
+  <div id="loader" aria-hidden="true">
+    <div class="loader-sigil"></div>
+    <div class="loader-text">Ouverture du grimoire…</div>
+  </div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+  <canvas id="fogCanvas"></canvas>
+  <div class="map-overlay"></div>
+  <div class="parchment-texture"></div>
+  <div class="vignette"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke-width="1.5"/><path d="M24 6 L24 42 M6 24 L42 24 M11 11 L37 37 M37 11 L11 37" stroke-width="1"/><circle cx="24" cy="24" r="6" stroke-width="1.5"/></svg>
+        <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="monde.html" class="active">Univers</a></li>
+          <li><a href="personnages.html">Personnages</a></li>
+          <li><a href="pays.html">Pays</a></li>
+          <li><a href="factions.html">Factions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="search-trigger" aria-label="Rechercher dans le codex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Fiche de monde</span>
+      <h1 class="reveal reveal-delay-1">Le Cube</h1>
+      <p class="lede reveal reveal-delay-2" style="margin:0 auto;">l'univers : royaumes primordiaux, secondaires et mortels, quatorze divinités et des peuples aussi variés que les Marcheurs ou les Dragoniers.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+
+      <div class="sheet-facts reveal">
+        <div class="fact"><span class="k">Nom</span><span class="v">Le Cube</span></div>
+        <div class="fact"><span class="k">Royaumes</span><span class="v">63 <br>(4 primordiaux, 10 secondaires, 13 mortels dont 36 non répertoriés)</span></div>
+        <div class="fact"><span class="k">Divinités</span><span class="v">14 (Le Panthéon)</span></div>
+        <div class="fact"><span class="k">Monnaie</span><span class="v">Teph / Glyphen / Glyphe</span></div>
+        <div class="fact"><span class="k">Factions</span><span class="v">Tour Magique, Sorcier Naphrein, Paladin</span></div>
+        <div class="fact"><span class="k">Continent</span><span class="v">1 continent<br>1 supercontinent </span></div>
+      </div>
+
+      <div class="sheet-tab-panel active" data-panel="apercu">
+        <p>Le Cube est l'univers le plus complet que j'ai créer(5 ans de travaille). Il rassemble vingt-sept royaumes répartis en trois ordres — primordiaux, secondaires et mortels — chacun avec son propre rapport au pouvoir, à la magie et aux dieux dont 36 non répertoriés.</p>
+        <p>Quatorze divinités veillent sur ses habitants, des peuples les plus communs (humains, elfes, nains, anges, démons) aux plus rares, nés de la magie propre à chaque royaume, comme les Marcheurs, les Gardiens ou les Gréfers. Une monnaie commune — le teph, le glyphen et le glyphe — circule à travers tous les royaumes, à l'exception de Spad.</p>
+      </div>
+
+      <div class="sheet-tab-panel" data-panel="pays">
+        <div class="grid-auto">
+          <div class="card"><div class="card-body"><h3>Royaumes Primordiaux</h3><p class="card-desc">Avaloria, Naphre, Bubïo, Spad.</p><a href="pays.html#royaumes-primordiaux" class="card-link">Voir la fiche</a></div></div>
+          <div class="card"><div class="card-body"><h3>Royaumes Secondaires</h3><p class="card-desc">Narabe, Celestia, Cristalia et sept autres royaumes.</p><a href="pays.html#royaumes-secondaires" class="card-link">Voir la fiche</a></div></div>
+          <div class="card"><div class="card-body"><h3>Royaumes Mortels</h3><p class="card-desc">Neptunia, Yru, Coraillon et neuf autres royaumes.</p><a href="pays.html#royaumes-mortels" class="card-link">Voir la fiche</a></div></div>
+          <div class="card"><div class="card-body"><h3>Tour Magique</h3><p class="card-desc">Faction des mages traditionnels.</p><a href="factions.html" class="card-link">Voir la fiche</a></div></div>
+          <div class="card"><div class="card-body"><h3>Sorcier Naphrein</h3><p class="card-desc">Faction des mages et sorciers de Naphre.</p><a href="factions.html" class="card-link">Voir la fiche</a></div></div>
+          <div class="card"><div class="card-body"><h3>Paladin</h3><p class="card-desc">Prêtres et prêtresses combattant pour un dieu.</p><a href="factions.html" class="card-link">Voir la fiche</a></div></div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:16px;">
+            <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke-width="1.5"/></svg>
+            <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+          </div>
+          <p style="max-width:38ch;">Créateur d'univers, de royaumes et de légendes. Chaque monde est bâti pierre par pierre, pour être exploré, vécu et partagé en jeu de rôle.</p>
+          <div class="footer-social">
+            <a href="https://discord.com" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="4"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg></a>
+            <a data-config-instagram target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explorer</h4>
+          <ul>
+            <li><a href="personnages.html">Personnages</a></li>
+            <li><a href="pays.html">Pays</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 <span data-config-author>VerseBuilder</span> - World Builder</span>
+        <span>Discord : <strong data-config-discord>azetch</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" aria-label="Fermer la recherche">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Rechercher un monde, un pays, un personnage…" autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

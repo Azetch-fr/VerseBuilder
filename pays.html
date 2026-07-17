@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pays — VerseBuilder, World Builder</title>
+<meta name="description" content="Les royaumes primordiaux, secondaires et mortels, et le système monétaire commun à tout le multivers.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-root="">
+
+  <div id="loader" aria-hidden="true">
+    <div class="loader-sigil"></div>
+    <div class="loader-text">Ouverture du grimoire…</div>
+  </div>
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+  <canvas id="starfield"></canvas>
+  <canvas id="fogCanvas"></canvas>
+  <div class="map-overlay"></div>
+  <div class="parchment-texture"></div>
+  <div class="vignette"></div>
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke-width="1.5"/><path d="M24 6 L24 42 M6 24 L42 24 M11 11 L37 37 M37 11 L11 37" stroke-width="1"/><circle cx="24" cy="24" r="6" stroke-width="1.5"/></svg>
+        <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Accueil</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="monde.html">Univers</a></li>
+          <li><a href="personnages.html">Personnages</a></li>
+          <li><a href="pays.html" class="active">Pays</a></li>
+          <li><a href="factions.html">Factions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="search-trigger" aria-label="Rechercher dans le codex"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <section class="page-hero">
+    <div class="container">
+      <span class="eyebrow reveal">Nations du Cube</span>
+      <h1 class="reveal reveal-delay-1">Pays</h1>
+      <p class="lede reveal reveal-delay-2" style="margin:0 auto;">Trois ordres de royaumes — primordiaux, secondaires et mortels — et une seule monnaie commune à travers le multivers.</p>
+    </div>
+  </section>
+
+  <section style="padding-top:0;">
+    <div class="container">
+
+      <article class="codex-entry reveal" id="royaumes-primordiaux">
+        <span class="cat">Ordre primordial</span>
+        <h3>Royaumes Primordiaux<span class="count-tag">4 royaumes</span></h3>
+        <p class="drop-cap">Les plus anciens royaumes, à l'origine de l'équilibre du monde.</p>
+        <ul class="country-grid">
+          <li class="country-chip">Avaloria</li>
+          <li class="country-chip">Naphre</li>
+          <li class="country-chip">Bubïo</li>
+          <li class="country-chip">Spad</li>
+        </ul>
+      </article>
+
+      <article class="codex-entry reveal reveal-delay-1" id="royaumes-secondaires">
+        <span class="cat">Ordre secondaire</span>
+        <h3>Royaumes Secondaires<span class="count-tag">10 royaumes</span></h3>
+        <ul class="country-grid">
+          <li class="country-chip">Oleom</li>
+          <li class="country-chip">Celestia</li>
+          <li class="country-chip">Cristalia</li>
+          <li class="country-chip">Ténérise</li>
+          <li class="country-chip">Temga</li>
+          <li class="country-chip">Daomima</li>
+          <li class="country-chip">Foriambu</li>
+          <li class="country-chip">Suomneg</li>
+          <li class="country-chip">Draconia</li>
+          <li class="country-chip">Astrologia</li>
+        </ul>
+      </article>
+
+      <article class="codex-entry reveal reveal-delay-2" id="royaumes-mortels">
+        <span class="cat">Ordre mortel</span>
+        <h3>Royaumes Mortels<span class="count-tag">12 royaumes</span></h3>
+        <ul class="country-grid">
+          <li class="country-chip">Neptunia</li>
+          <li class="country-chip">Yru</li>
+          <li class="country-chip">Coraillon</li>
+          <li class="country-chip">Trapez</li>
+          <li class="country-chip">Trilopty</li>
+          <li class="country-chip">Zãpãnã</li>
+          <li class="country-chip">Yzraïl</li>
+          <li class="country-chip">Gnardland</li>
+          <li class="country-chip">Infernia</li>
+          <li class="country-chip">Lactus</li>
+          <li class="country-chip">Fôresria</li>
+          <li class="country-chip">Antrika</li>
+          <li class="country-chip">Negaimne</li>
+          <li class="country-chip">Nargor</li>
+        </ul>
+      </article>
+
+      <article class="codex-entry reveal" id="economie">
+        <span class="cat">Économie</span>
+        <h3>Monnaie commune</h3>
+        <p class="drop-cap">Tous les royaumes fonctionnent avec la même monnaie, sauf Spad qui n'utilise que l'argent de plus basse valeur, le glyphe.</p>
+        <div class="sheet-facts">
+          <div class="fact"><span class="k">1 teph</span><span class="v">1000 glyphens</span></div>
+          <div class="fact"><span class="k">1 glyphen</span><span class="v">10 000 glyphes</span></div>
+          <div class="fact"><span class="k">1 teph</span><span class="v">10 000 000 glyphes</span></div>
+        </div>
+        <h4>Gagner de l'argent</h4>
+        <p>Le revenu dépend du métier exercé, mais la voie la plus simple pour gagner de l'argent reste de devenir aventurier d'un bon niveau.</p>
+        <h4>Coût de la vie courante</h4>
+        <ul>
+          <li>Une baguette = 8 glyphes</li>
+          <li>Une pomme = 5 glyphes</li>
+          <li>1€ = 1 glyph</li>
+        </ul>
+        <p>Pour tout autre produit, il faut demander directement au vendeur.</p>
+      </article>
+
+    </div>
+  </section>
+
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:16px;">
+            <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke-width="1.5"/></svg>
+            <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+          </div>
+          <p style="max-width:38ch;">Créateur d'univers, de royaumes et de légendes. Chaque monde est bâti pierre par pierre, pour être exploré, vécu et partagé en jeu de rôle.</p>
+          <div class="footer-social">
+            <a href="https://discord.com" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="4"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg></a>
+            <a data-config-instagram target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explorer</h4>
+          <ul>
+            <li><a href="personnages.html">Personnages</a></li>
+            <li><a href="pays.html">Pays</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 <span data-config-author>VerseBuilder</span> - World Builder</span>
+        <span>Discord : <strong data-config-discord>azetch</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" aria-label="Fermer la recherche">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Rechercher un monde, un pays, un personnage…" autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

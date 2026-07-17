@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VerseBuilder — World Builder | Créateur d'univers RP</title>
+<meta name="description" content="VerseBuilder, World Builder : création d'univers de jeu de rôle entièrement personnalisés — mondes, royaumes, personnages et factions.">
+
+<!-- Polices premium -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=MedievalSharp&display=swap" rel="stylesheet">
+
+<!-- Feuille de style principale -->
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-root="">
+
+  <!-- Loader d'entrée -->
+  <div id="loader" aria-hidden="true">
+    <div class="loader-sigil"></div>
+    <div class="loader-text">Ouverture du grimoire…</div>
+  </div>
+
+  <!-- Curseur personnalisé -->
+  <div class="cursor-dot"></div>
+  <div class="cursor-ring"></div>
+
+  <!-- Fond animé : étoiles, brume, carte ancienne, parchemin, vignette -->
+  <canvas id="starfield"></canvas>
+  <canvas id="fogCanvas"></canvas>
+  <div class="map-overlay"></div>
+  <div class="parchment-texture"></div>
+  <div class="vignette"></div>
+
+  <!-- ============ HEADER ============ -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="index.html" class="logo">
+        <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="24" r="20" stroke-width="1.5"/>
+          <path d="M24 6 L24 42 M6 24 L42 24 M11 11 L37 37 M37 11 L11 37" stroke-width="1"/>
+          <circle cx="24" cy="24" r="6" stroke-width="1.5"/>
+        </svg>
+        <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+      </a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html" class="active">Accueil</a></li>
+          <li><a href="about.html">À propos</a></li>
+          <li><a href="monde.html">Univers</a></li>
+          <li><a href="personnages.html">Personnages</a></li>
+          <li><a href="pays.html">Pays</a></li>
+          <li><a href="factions.html">Factions</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <button class="search-trigger" aria-label="Rechercher dans le codex">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+      </button>
+      <button class="nav-toggle" aria-label="Ouvrir le menu"><span></span><span></span><span></span></button>
+    </div>
+  </header>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-frame"></div>
+    <div class="container">
+      <div class="hero-content">
+        <span class="eyebrow reveal">Codex du World Builder</span>
+        <h1 class="reveal reveal-delay-1">Forgez des mondes inoubliables.</h1>
+        <p class="hero-sub reveal reveal-delay-2">Forge d'univers entièrement personnalisés.</p>
+        <div class="btn-row reveal reveal-delay-3">
+          <a href="monde.html" class="btn">Explorer Le Cube</a>
+          <a href="contact.html" class="btn btn-ghost">Me contacter</a>
+        </div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Descendre</span>
+      <div class="line"></div>
+    </div>
+  </section>
+
+  <!-- ============ INTRO / À PROPOS (aperçu) ============ -->
+  <section id="apropos">
+    <div class="container grid-2">
+      <div class="reveal">
+        <span class="eyebrow">Le scribe derrière le grimoire</span>
+        <h2>Un architecte de mondes, pierre par pierre.</h2>
+        <p class="lede">Depuis plusieurs années, je façonne des univers de jeu de rôle complets : géographie, politique, magie, religions et destins entremêlés. Chaque projet est pensé comme un monde vivant, prêt à être exploré par vos personnages.</p>
+        <ul class="icon-list">
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>Mondes &amp; royaumes</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg>Personnages</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 4h16v16H4z"/><path d="M4 9h16M9 4v16"/></svg>Cartes &amp; territoires</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>Magie &amp; religions</li>
+        </ul>
+        <div class="stat-row">
+          <div class="stat"><span class="num">12+</span><span class="label">Univers créés</span></div>
+          <div class="stat"><span class="num">80+</span><span class="label">Personnages</span></div>
+          <div class="stat"><span class="num">30+</span><span class="label">Cartes</span></div>
+        </div>
+        <div class="btn-row" style="margin-top:36px;">
+          <a href="about.html" class="btn">En savoir plus</a>
+        </div>
+      </div>
+      <div class="reveal reveal-delay-2">
+        <div class="panel">
+          <span class="eyebrow">Aperçu de l'univers</span>
+          <h3>Le Cube</h3>
+          <p>Le monde principal de l'univers : vingt-six royaumes répartis en trois ordres — primordiaux, secondaires et mortels — huit divinités et une magie née de la Grande Fracture.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="num">26</span><span class="label">Royaumes</span></div>
+            <div class="stat"><span class="num">8</span><span class="label">Divinités</span></div>
+            <div class="stat"><span class="num">3+</span><span class="label">Factions</span></div>
+          </div>
+          <a href="monde.html" class="card-link">Voir la fiche complète →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container"><div class="divider-fantasy">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2l2.4 6.6L21 11l-6.6 2.4L12 20l-2.4-6.6L3 11l6.6-2.4z"/></svg>
+  </div></div>
+
+  <!-- ============ APERÇU DU CODEX ============ -->
+  <section id="codex-preview">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="eyebrow">Le Codex</span>
+        <h2>Des créations façonnées avec passion.</h2>
+        <p class="lede">Un aperçu des univers et personnages déjà forgés pour des campagnes de jeu de rôle.</p>
+      </div>
+      <div class="grid-auto">
+        <article class="card reveal", onclick="window.location.href='monde.html'">
+          <span class="card-tag">Univers</span>
+          <div class="card-body">
+            <div class="card-meta"><span>Fantasy</span><span>2024</span></div>
+            <h3>Le Cube</h3>
+            <a href="monde.html" class="card-link">Explorer</a>
+          </div>
+        </article>
+        <article class="card reveal reveal-delay-1" onclick="window.location.href='personnages.html'">
+          <span class="card-tag">Personnage</span>
+          <div class="card-body">
+            <div class="card-meta"><span>Assassin</span></div>
+            <h3>Séraphina Thanatos</h3>
+            <a href="personnages.html" class="card-link">Explorer</a>
+          </div>
+        </article>
+      </div>
+      <div class="btn-row" style="justify-content:center; margin-top:50px;">
+        <a href="monde.html" class="btn">Explorer le Codex</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ APERÇU UNIVERS ============ -->
+  <section id="univers-preview" style="background:linear-gradient(180deg, transparent, rgba(30,42,38,0.25), transparent);">
+    <div class="container">
+      <div class="section-head center reveal">
+        <span class="eyebrow">Univers</span>
+        <h2>Chaque univers est un monde à part entière.</h2>
+      </div>
+      <div class="grid-2">
+        <div class="panel reveal">
+          <span class="eyebrow">Univers principal</span>
+          <h3>Le Cube</h3>
+          <p>Vingt-six royaumes répartis en trois ordres, huit divinités et une magie née de la Grande Fracture. Un monde taillé pour les intrigues politiques et les quêtes épiques.</p>
+          <div class="stat-row">
+            <div class="stat"><span class="num">26</span><span class="label">Royaumes</span></div>
+            <div class="stat"><span class="num">8</span><span class="label">Divinités</span></div>
+            <div class="stat"><span class="num">3+</span><span class="label">Factions</span></div>
+          </div>
+          <div class="btn-row" style="margin-top:26px;"><a href="monde.html" class="btn btn-cyan">Explorer Le Cube</a></div>
+        </div>
+        <div class="reveal reveal-delay-2">
+          <svg viewBox="0 0 400 400" style="width:100%;opacity:.5;">
+            <circle cx="200" cy="200" r="170" fill="none" stroke="#D4AF37" stroke-width="1"/>
+            <circle cx="200" cy="200" r="130" fill="none" stroke="#5CC8FF" stroke-width="0.6"/>
+            <path d="M200 30 L200 370 M30 200 L370 200 M60 60 L340 340 M340 60 L60 340" stroke="#D4AF37" stroke-width="0.5"/>
+            <circle cx="200" cy="200" r="4" fill="#D4AF37"/>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ CTA FINAL ============ -->
+  <section id="cta-contact">
+    <div class="container">
+      <div class="panel reveal" style="text-align:center; padding:70px 40px;">
+        <span class="eyebrow">Un projet en tête ?</span>
+        <h2>Donnons vie à votre univers de jeu de rôle.</h2>
+        <p class="lede" style="margin:0 auto 30px;">Que vous cherchiez un monde complet ou une simple fiche de personnage, discutons de votre vision.</p>
+        <div class="btn-row" style="justify-content:center;">
+          <a href="contact.html" class="btn">Me contacter</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="logo" style="margin-bottom:16px;">
+            <svg class="logo-sigil" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><circle cx="24" cy="24" r="20" stroke-width="1.5"/><circle cx="24" cy="24" r="6" stroke-width="1.5"/></svg>
+            <span><span class="name">VERSEBUILDER</span><small>World Builder</small></span>
+          </div>
+          <p style="max-width:38ch;">Créateur d'univers, de royaumes et de légendes. Chaque monde est bâti pierre par pierre, pour être exploré, vécu et partagé en jeu de rôle.</p>
+          <div class="footer-social">
+            <a href="https://discord.com" target="_blank" rel="noopener" aria-label="Discord"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="6" width="16" height="12" rx="4"/><circle cx="9" cy="12" r="1"/><circle cx="15" cy="12" r="1"/></svg></a>
+            <a data-config-instagram target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
+          </div>
+        </div>
+        <div>
+          <h4>Navigation</h4>
+          <ul>
+            <li><a href="about.html">À propos</a></li>
+            <li><a href="monde.html">Univers</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4>Explorer</h4>
+          <ul>
+            <li><a href="personnages.html">Personnages</a></li>
+            <li><a href="pays.html">Pays</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2025 <span data-config-author>VerseBuilder</span> - World Builder</span>
+        <span>Discord : <strong data-config-discord>azetch</strong></span>
+      </div>
+    </div>
+  </footer>
+
+  <button id="backToTop" aria-label="Retour en haut"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+  <!-- Overlay de recherche globale -->
+  <div class="search-overlay" id="searchOverlay">
+    <button class="search-close" aria-label="Fermer la recherche">&times;</button>
+    <div class="search-box">
+      <input type="text" placeholder="Rechercher un monde, un pays, un personnage…" autocomplete="off">
+      <div class="search-results"></div>
+    </div>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
